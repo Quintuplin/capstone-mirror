@@ -1,0 +1,5 @@
+Jack Fraser
+
+set up zenhub
+set up local fork
+added to wiki
