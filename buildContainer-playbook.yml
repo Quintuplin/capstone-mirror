@@ -1,0 +1,65 @@
+---
+- name: build and link containers
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: install python modules
+    pip:
+      name: "{{item}}"
+      state: present
+    with_items:
+      - docker-py==1.10.6
+      - docker-compose==1.9.0
+
+  - name: build mysql image
+    docker_image:
+      path: ./mysql
+      name: mysqlimage
+      tag: sqltag
+
+  - name: build shiny image
+    docker_image:
+      path: ./rshiny
+      name: shinyimage
+      tag: shinytag
+
+  - name: Create a network
+    docker_network:
+      name: sql-network
+      ipam_options:
+        subnet: '172.20.0.0/16'
+        iprange: '172.20.240.0/20'
+
+  - name: create mysql container
+    docker_container:
+      name: mysqlcontainer
+      image: mysqlimage:sqltag
+      networks:
+        - name: sql-network
+          ipv4_address: "172.20.240.1"
+
+  - name: sleep
+    shell: "sleep 15"
+
+  - name: sql command
+    shell: "docker exec -i mysqlcontainer mysql -uroot -ppass4root < mysql/createuser.sql"
+
+  - name: sql command
+    shell: "docker exec -i mysqlcontainer mysql -ucsci462 -pcsci462 < mysql/createdata.sql"
+
+  - name: sql command
+    shell: 'docker exec -i mysqlcontainer mysql -ucsci462 -pcsci462 -e "select * from testdb.testtab;"'
+
+
+  - name: create shiny container and link to mysqlContainer
+    docker_container:
+      name: shinycontainer
+      image: shinyimage:shinytag
+      networks:
+        - name: sql-network
+          ipv4_address: '172.20.240.2'
+          links:
+            - mysqlcontainer
+      ports:
+        - "80:3838"
