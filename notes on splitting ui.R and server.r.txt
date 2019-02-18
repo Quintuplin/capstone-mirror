@@ -1,0 +1,16 @@
+splitting is unneccessary but can easily be done manually
+
+this is because the app.R will have references to ui.r and server.r, 
+and call them in order to make the summarized webpage
+
+however, those are equally able to be in seperate files/directories as they are to be in the self-same file
+
+to summarize
+    seperating server and UI allows for
+        1. allowing ui or server code to be easily shared between different 'apps'
+        2. making logically distinct entities have their own files for better organization
+
+    however, it comes at the cost of
+        1. in case of different 'apps' requiring distinct ui or server functionalities, the number of 
+            bloated files (either in file number or in file contents) goes up exponentially
+        2. multiple files can unneccessarily split up logically associated functions
