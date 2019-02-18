@@ -54,7 +54,7 @@ ui <- fluidPage(
 server <- function(input, output) {
 
   observeEvent(input$QC, {
-    # system(paste('msconvert ', input$rawFile$datapath, ' -v --mzML', sep=''))
+    system(paste('msconvert ', input$rawFile$datapath, ' -v --mzML', sep=''))
     QUERY <- '0'
     query_file <- openMSfile('0.mzML')   # default filename  
     make <- instrumentInfo(query_file)$manufacturer
