@@ -18,11 +18,10 @@
       name: mysqlimage
       tag: sqltag
 
-  - name: build shiny image
+  - name: pull shiny image from docker hub
     docker_image:
-      path: ./rshiny
-      name: shinyimage
-      tag: shinytag
+      name: rocker/shiny
+
 
   - name: Create a network
     docker_network:
@@ -55,7 +54,7 @@
   - name: create shiny container and link to mysqlContainer
     docker_container:
       name: shinycontainer
-      image: shinyimage:shinytag
+      image: rocker/shiny:latest
       networks:
         - name: sql-network
           ipv4_address: '172.20.240.2'
