@@ -1,0 +1,8 @@
+Using ubuntu, support for .nupkg files seems to require installing (sudo apt install)
+	mono-complete
+and
+	nuget
+
+This is the converter we (should) be using, but attribution, EULA, etc will have to be handled, and carefully.
+
+Still figuring out how to run it from R but at least now we have it
