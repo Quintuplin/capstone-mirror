@@ -6,3 +6,7 @@ and
 This is the converter we (should) be using, but attribution, EULA, etc will have to be handled, and carefully.
 
 Still figuring out how to run it from R but at least now we have it
+
+It appears to be installed through nuget
+	nuget install $filename.nupkg
+
