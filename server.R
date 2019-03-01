@@ -6,21 +6,22 @@
 # 
 #    http://shiny.rstudio.com/
 #
+#NIST CofC Pipeline server logic
 
 library(shiny)
 
-# Define server logic required to draw a histogram
+# Define server logic (probably to define box color and graph display if tabbed)
 shinyServer(function(input, output) {
    
-  output$distPlot <- renderPlot({
+  #output$distPlot <- renderPlot({
     
     # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    #x    <- faithful[, 2] 
+    #bins <- seq(min(x), max(x), length.out = input$bins + 1)
     
     # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    #hist(x, breaks = bins, col = 'darkgray', border = 'white')
     
-  })
+  #})
   
 })

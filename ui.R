@@ -6,6 +6,7 @@
 # 
 #    http://shiny.rstudio.com/
 #
+# NIST CofC pipeline page
 
 library(shiny)
 
@@ -17,13 +18,7 @@ shinyUI(fluidPage(
   
   # Sidebar just says "Hela" for now
   sidebarLayout(
-    sidebarPanel("Hela"
-      #sliderInput("bins",
-      #            "Number of bins:",
-      #            min = 1,
-      #            max = 50,
-      #            value = 30)
-    ),
+    sidebarPanel("Hela"),
     
     # Show a plot of the generated distribution
     #mainPanel(
@@ -39,10 +34,16 @@ shinyUI(fluidPage(
                              column(2,"MS-2")
                              ),
                     #Hard Coded colored squares for now
+                    #
+                    #arrow.png needs all columns set to 1 and may not be necessary
                     fluidRow(column(2,offset= 1,img(src="images/greenbox.png",width=100)),
+                                #column(1,img(src="images/arrow.png",width=50)),
                              column(2,img(src="images/greenbox.png",width=100)),
+                                #column(1,img(src="images/arrow.png",width=50)),
                              column(2,img(src="images/yellowbox.png",width=100)),
+                                #column(1,img(src="images/arrow.png",width=50)),
                              column(2,img(src="images/redbox.png",width=100)),
+                                #column(1,img(src="images/arrow.png",width=50)),
                              column(2,img(src="images/redbox.png",width=100))
                       
                     )
