@@ -55,5 +55,5 @@
 > BiocManager::available()
 10. one more check in the R console (should come back TRUE) <br />
 > BiocManager::valid() <br />
-11. Install this guy (MzR package) *This is a big package- will take time*
+11. Install this guy (MzR package) *This is a big package- will take time, try not to have to many things running while this is going. It froze my PC up 3 times*
 > BiocManager::install("mzR", version = "3.8") <br />
