@@ -53,4 +53,5 @@
 > BiocManager::install() <br />
 9. Make sure it worked by typing this in console.. a bunch of stuff should pop up <br />
 > BiocManager::available()
-
+10. one more check in the R console (should come back TRUE) <br />
+> BiocManager::valid() <br />
