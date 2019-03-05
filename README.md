@@ -57,3 +57,5 @@
 > BiocManager::valid() <br />
 11. Install this guy (MzR package) *This is a big package- will take time, try not to have to many things running while this is going. It froze my PC up 3 times*
 > BiocManager::install("mzR", version = "3.8") <br />
+12. Check that it worked by trying to access the documentation for MZR <br />
+> browseVignettes("mzR") <br />
