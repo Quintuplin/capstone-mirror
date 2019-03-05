@@ -1,4 +1,5 @@
 # capstone-2019-nist
+<<<<<<< HEAD
 
 ## The team: 
 * Dylan Cowden
@@ -59,3 +60,6 @@
 > BiocManager::install("mzR", version = "3.8") <br />
 12. Check that it worked by trying to access the documentation for MZR <br />
 > browseVignettes("mzR") <br />
+=======
+# other files too large to upload on git
+>>>>>>> 52583442b547abd8f7af40c175078c5dd6b3ddab
