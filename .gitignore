@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+.mzML
+.RAW
+.vscode
+.json

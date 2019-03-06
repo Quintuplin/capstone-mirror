@@ -1,3 +1,27 @@
-TODOS for drag and drop webpage:
-    ui.R
-    server.R
+app.r in it's current iteration seems to require three things
+
+1. installation of support libraries
+    Support information for running Magnus code sample:
+    Dependencies: R requires support libraries to be installed manually. For this project, the mzR package is required, as it supports parsing for many mass spectrometry filetypes.
+    These support libraries can be installed by opening the R client, or the Rstudio app, then navigating to 'install packages', then 'local file', then selecting the zip files for each library you want to add. Due to the nature of adding libraries to R, package installation cannot be easily done manually (via drag and drop).
+    Links below: mzR: https://www.bioconductor.org/packages/release/bioc/html/mzR.html 
+    BiocGenerics (mzR dependency): https://bioconductor.org/packages/release/bioc/html/BiocGenerics.html 
+    ProtGenerics (mzRdependency): http://bioconductor.org/packages/release/bioc/html/ProtGenerics.html 
+    Biobase (BiocGenerics dependency): https://bioconductor.org/packages/release/bioc/html/Biobase.html
+    ncdf4: this can be found within CRAN, and as such can be found by going to 'insall package', then scanning through the known extension database until you find ncdf4.
+    These are all the dependencies that I currently am aware of, and installing them should be sufficient to make the Magnus sample webpage function correctly.
+
+2. placement of 0.mzML file
+    strict formatting requirements of mzML perclude creating a blank file ".mzML"
+    for now, downloaded and input a demo mzML file from http://www.psidev.info/mzml
+        side note: mzML information can be found at that website
+        may be essential to implementing a more proper solution to this situation
+
+3. input of name.mzML file
+    while the webpage accepts the input of any filetype, it will fail if a non-mzML file is inserted
+
+Unknown if there are further issues or quirks: more examination required.
+
+-Jack
+
+Zenhub: https://app.zenhub.com/workspaces/zenhub-5c5dcbaea623f97247890030/boards?repos=168981813
