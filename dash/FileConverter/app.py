@@ -1,0 +1,1 @@
+subprocess.call(["sudo","python","scale1.py"]) 
