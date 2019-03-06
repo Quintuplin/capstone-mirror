@@ -1,0 +1,7 @@
+Jack Fraser
+
+set up zenhub: 
+    https://app.zenhub.com/workspaces/zenhub-5c5dcbaea623f97247890030/boards?repos=168981813
+
+set up local fork
+added to wiki
