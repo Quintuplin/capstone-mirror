@@ -4,6 +4,10 @@ import dash_html_components as html
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
+#https://dash.plot.ly/getting-started
+#to view, run and visit http:127.0.0.1:8050/ in web browser
+#requires python installed, python-pip installed, and 'pip install dash' command run (dash installed)
+
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div(children=[
