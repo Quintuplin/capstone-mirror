@@ -10,31 +10,51 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(children=[
 	#QC BENCHMARKER HEADER
-    html.H1(children='QC Benchmarker'),
-	#PROVIDED BY NIST TEXT
-	html.Div(children='Provided by NIST', className="app-header--title"),
+    html.H1(children='QC Benchmarker', className = "app-header"),
+	#BEGIN DROP DOWN MENU
+	dcc.Dropdown(
+	#BEGIN OPTIONS
+	options=[
+        {'label': 'Hela', 'value': 'HELA'},
+        {'label': 'neeley', 'value': 'NEELEY'}
+    ],
+	#END OPTIONS
+    value='OPT'
+	),
+	#END DROP DOWN
 	#START UPLOAD CODE
 	dcc.Upload(
         id='upload-data',
 		#BEGIN INSIDE BOX TEXT
-        children=html.Div(['Drag and Drop or ', html.A('Select Files',className="app-typography--a")]),
-		#END INSIDE BOX TEXT, GRABBING 'A' DESIGN FROM TOPOGRAPHY.CSS
+        children=html.Div([
+				html.Div('Drag and Drop or ', style={'text-align':'center', 'vertical-align': 'middle', 'line-height': '500px'}),
+				#END INNER DIV
+				 html.A('Select Files',className="app-typography--a"),
+				 #END HTML A
+		], #END DIV,
+		#END INSIDE BOX TEXT
+
 		#BEGIN STYLE OF BOX AROUND UPLOAD
         style={
-            'width': '100%',
-            'height': '60px',
+			'margin': 'auto',
+			'width': '50%',
+            'height': '500px',
             'lineHeight': '60px',
             'borderWidth': '1px',
             'borderStyle': 'dashed',
             'borderRadius': '5px',
             'textAlign': 'center',
-            'margin': '10px'
+
+
         },
 		#END STYLE OF BOX AROUND UPLOAD
 
     ),
-	# END UPLOAD
-    html.Div(id='output-data-upload'),
+	#END OUTTER DIV
+),
+# END UPLOAD
+	html.Div(id='output-data-upload'),
+
 ])
 #end app.layout
 ##############################################################################################################################
