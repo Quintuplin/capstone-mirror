@@ -5,7 +5,7 @@ import dash
 import dash_html_components as html
 import os
 cwd = os.getcwd()
-UPLOAD_FOLDER = cwd + '\\www'
+UPLOAD_FOLDER = "/project/app_uploaded_files"
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
