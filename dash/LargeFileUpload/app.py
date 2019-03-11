@@ -7,6 +7,11 @@ import os
 cwd = os.getcwd()
 UPLOAD_FOLDER = "/project/app_uploaded_files"
 
+#https://community.plot.ly/t/dash-upload-component-decoding-large-files/8033/10
+#tos:https://community.plot.ly/tos
+#relevant CC license details for community content: https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US
+#takeaway: attribution, non-commercial, share-alike
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
