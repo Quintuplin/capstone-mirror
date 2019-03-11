@@ -6,8 +6,12 @@ import dash_html_components as html
 import os
 cwd = os.getcwd()
 UPLOAD_FOLDER = "/project/app_uploaded_files"
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app.layout = html.Div( 
