@@ -31,7 +31,11 @@ def upload_file():
     if request.method == 'POST':
         file = request.files['file']
         filename = secure_filename(file.filename)
+        #if file.exists (filename.split('.')[0]+"1." +filename.split('.')[1])
+        while os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], filename)):
+            filename = filename.split('.')[0]+"1." +filename.split('.')[1]
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
 
     return '''
     <form method=post enctype=multipart/form-data>
