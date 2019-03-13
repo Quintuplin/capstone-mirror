@@ -1,9 +1,18 @@
+#Sampe code from the dash user guides: dash.plot.ly/urls
+import dash_core_components as dcc
+import dash_html_components as html
 import os
-# instance of flask class will be our WSGI application
+from dash.dependencies import Input, Output
+
+from app import app
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 from flask import send_from_directory
 
+layout = html.Div([
+    html.H3('App 1'),
+    dcc.Link('Go to App 2', href='/apps/app2')
+])
 # store files uploaded in the /uploads directory
 UPLOAD_FOLDER = '/home/misae/Documents/uploads'
 # we are allowing raw and fasta files
@@ -67,3 +76,10 @@ def uploaded_file(filename):
 if __name__ == "__main__":
     # Only for debugging while developing
     app.run(host='0.0.0.0', debug=True, port=80)
+
+
+# @app.callback(
+#     Output('app-1-display-value', 'children'),
+#     [Input('app-1-dropdown', 'value')])
+# def display_value(value):
+#     return 'You have selected "{}"'.format(value)
