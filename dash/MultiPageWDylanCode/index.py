@@ -15,10 +15,10 @@ app.layout = html.Div([
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):
-    #print(pathname)
+    #html.H3('You are viewing information on {}'.format(pathname)),
     if pathname == '/app1':
         return app1.layout
-    elif "/dylan" in pathname:
+    elif "/dylan" in str(pathname):
         return dylan.layout
     else:
         return app1.layout
