@@ -1,5 +1,7 @@
 https://dash.plot.ly/urls
 
+dylancode is taken from dylan's branch, just to try to get a nice multi-user demo going
+
 Here's how to structure a multi-page app, where each app is contained in a separate file.
 File structure:
 - app.py
@@ -11,8 +13,8 @@ File structure:
 
 Each app runs independently, and resets if you leave
 Run from index.py
-working url is http://127.0.0.1:8050/apps/app1
-   (plain url returns 404)
-      altered such that any 404-causing error goes to app1 instead
-         this can be done so that there are no unhandled situations: people will get the main page instead
-         open to other ideas of best practices in this regard
+current urls are 
+   http://127.0.0.1:8050/app1
+   http://127.0.0.1:8050/dylan
+   
+dylan url also has suburls, reachable by clicking the images
