@@ -1,6 +1,7 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+from dash.dependencies import Input, Output
 
 from app import app
 from app import server
@@ -80,9 +81,5 @@ layout = html.Div(children=[
 def display_page(pathname):
    if (pathname != '/dylan'):#'/page-2'):
       return html.Div([
-         
+         html.H3('You are viewing information on {}'.format(pathname))
       ])
-#### end of rest
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
