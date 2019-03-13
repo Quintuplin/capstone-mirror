@@ -5,7 +5,10 @@ import dash_core_components as dcc
 import dash_html_components as html
 #import dash_bootstrap_components
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+# using local version for local testing straight from
+#       https://codepen.io/chriddyp/pen/bWLwgP.css
+external_stylesheets = ['static/css/bWLwgP_chriddyp_codepen.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
@@ -25,8 +28,19 @@ app.layout = html.Div(children=[
     html.Div(id='page-content'),
     #### end of insert
     
-    #main Row div
-    html.Div([
+])
+
+#### rest of link code
+@app.callback(dash.dependencies.Output('page-content', 'children'),
+              [dash.dependencies.Input('url', 'pathname')])
+def display_page(pathname):
+   if (pathname != '/'):#'/page-2'):
+      return html.Div([
+         html.H3('You are viewing information on {}'.format(pathname))
+      ])
+	else:
+		#main Row div of pipeline page
+		return html.Div([
         html.Div(#Column 1: Sample
             [
                 html.H5(children='Sample'),
@@ -74,18 +88,7 @@ app.layout = html.Div(children=[
         ),
     ],
     #End of row
-    className="row"
-),
-])
-
-#### rest of link code
-@app.callback(dash.dependencies.Output('page-content', 'children'),
-              [dash.dependencies.Input('url', 'pathname')])
-def display_page(pathname):
-   if (pathname != '/'):#'/page-2'):
-      return html.Div([
-         html.H3('You are viewing information on {}'.format(pathname))
-      ])
+    className="row")
 #### end of rest
 
 if __name__ == '__main__':
