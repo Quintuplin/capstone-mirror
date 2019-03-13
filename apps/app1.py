@@ -25,10 +25,6 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 
 # this method was provided in the flask documentation
 # purpose: checks to see if the file is allowed to be uploaded based on our ALLOWED_EXTENSIONS var
@@ -39,7 +35,7 @@ def allowed_file(filename):
 
 
 # app.route tells flask what URL should trigger upload_file()
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/apps/app1', methods=['GET', 'POST'])
 # this method was provided in the flask doccumentation
 # purpose: uploads file and redirects user to the url of that file
 # attribution: http://flask.pocoo.org/docs/1.0/patterns/fileuploads/
@@ -58,11 +54,18 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('index',
+            return redirect(url_for('uploaded_file',
                                     filename=filename))
 
-        return redirect(url_for('index'))
-
+    return '''
+    <!doctype html>
+    <title>Upload new File</title>
+    <h1>Upload new File</h1>
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+  	'''
 
 # tells flask /uploads/filename url should trigger uploaded_file()
 

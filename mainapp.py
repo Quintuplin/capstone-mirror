@@ -7,6 +7,7 @@ from app import app
 from apps import app1, app2
 
 
+
 #makes layout for app1 and pipeapp
 #id 'url' used especially in pipeline
 app.layout=html.Div([dcc.Location(id='url',refresh=False),
