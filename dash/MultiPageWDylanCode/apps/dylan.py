@@ -11,6 +11,8 @@ colors = {
 }
 
 layout = html.Div(children=[
+    html.H3('You are viewing information on {}'.format(dcc.Location)),
+
     #Header
     html.H1(children='QC Benchmarker', className = "app-header"),
     
@@ -75,12 +77,10 @@ layout = html.Div(children=[
 ])
 
 #### rest of link code
-@app.callback(dash.dependencies.Output('page-content', 'children'),
-              [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
    if (pathname != '/dylan'):#'/page-2'):
       return html.Div([
-         html.H3('You are viewing information on {}'.format(pathname))
+         
       ])
 #### end of rest
 

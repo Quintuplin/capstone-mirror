@@ -12,15 +12,16 @@ app.layout = html.Div([
 ])
 
 
-# @app.callback(Output('page-content', 'children'),
-#               [Input('url', 'pathname')])
+@app.callback(Output('page-content', 'children'),
+              [Input('url', 'pathname')])
 def display_page(pathname):
+    print(pathname)
     if pathname == '/app1':
-         return app1.layout
-    elif pathname == '/dylan':
-         return dylan.layout
-    else:
+        return app1.layout
+    elif pathname == '/app1':
         return dylan.layout
+    else:
+        return app1.layout
 
 if __name__ == '__main__':
     app.run_server(debug=True)
