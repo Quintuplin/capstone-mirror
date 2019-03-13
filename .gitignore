@@ -9,3 +9,4 @@
 *.mzML
 *.RAW
 __pycache__
+*.db
