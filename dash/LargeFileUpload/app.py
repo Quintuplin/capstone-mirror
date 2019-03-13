@@ -19,7 +19,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 app.layout = html.Div( 
         children=[
-            html.Iframe(id='iframe-upload',src=f'/upload'),
+            #html.Iframe(id='iframe-upload',src=f'/upload'),
+            html.Iframe(id='iframe-upload',src=str.format('/upload')),
             html.Div(id='output')
                 ]
 )
