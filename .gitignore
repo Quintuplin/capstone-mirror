@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.mzML
+.RAW
+.vscode
+.json
+*.mzML
+*.RAW
+__pycache__

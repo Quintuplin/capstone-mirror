@@ -1,0 +1,1 @@
+html.Iframe(id='iframe-upload',src=str.format('/upload')),
