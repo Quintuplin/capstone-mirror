@@ -5,3 +5,4 @@ to test this:
 > pip install -r requirements.txt
 * cd into capstone dir
 > python3 manage.py runserver 
+* **this app has not been fully tested or refactored, don't judge my code, I figured you guys should see what I have put together** 
