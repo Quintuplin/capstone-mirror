@@ -1,0 +1,2 @@
+This is (will be) a fully featured combination of all dash subfeatures for a functional APP1
+While file paths may need to be changed, (and os calls might need tweaking as well for docker), this is intended to fulfill the target capabilities of APP1 as shown in the project layout diagram
