@@ -10,9 +10,11 @@ I have files for the raw, hela splib, fasta, and a converted mzML file; these ar
 
 ## Explanation of Files in this Repository:
 
-Rshiny folder; deprecated code from Rshiny implementation
+APP folder(s); most completed and combined capability apps that satisfy project requirements per project_layout.jpg
 
-dash folder; subfolders with each feature that I am working on. Ones with screenshots are functional, ones with out are still WIP. 
+dash subfeatures folder; subfolders with subfeatures. This is largely a WIP and experimental section, with screenshots added to subfeatures as they are made functional. Each subfeature is intended to be brought in to one of the APPs eventually
+
+Rshiny oldcode folder; deprecated code from Rshiny implementation, kept for posterity
 
 ## Other notes:
 If it has a screenshot but does not work on your machine, please contact me; you might have a setup issue that I would be happy to aid with, or I might be in the process of updating it (I occasionally push commits while working; all code is backed up here independent of completion.)
