@@ -1,0 +1,1 @@
+this file is the subfeature of the uploader, intended to generate a unique ID for each upload, save files to a directory associated with that ID, and allow for access by inputting that ID appended to the base app's URL.
