@@ -7,6 +7,7 @@ import os
 import subprocess
 cwd = os.getcwd()
 
+#proteowizard's msconvert from http://proteowizard.sourceforge.net/download.html
 #https://community.plot.ly/t/dash-upload-component-decoding-large-files/8033/10
 #tos:https://community.plot.ly/tos
 #relevant CC license details for community content: https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US
