@@ -1,8 +1,6 @@
-to test this: 
-* activate the virtual env, you will remain in this env the whole time 
-> source myvenv/bin/activate
-* install requirements in myvnev you should see a (mvenv) next to your command prompt 
-> pip install -r requirements.txt
-* cd into capstone dir
+This is a Django application with a dash app embedded inside it. 
+1. Activate the virtual environment 
+> source myenv/bin/activate
+2. cd into capstone directory 
+3. run the server 
 > python3 manage.py runserver 
-* **this app has not been fully tested or refactored, don't judge my code, I figured you guys should see what I have put together** 
