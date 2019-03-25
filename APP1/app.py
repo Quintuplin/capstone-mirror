@@ -27,8 +27,13 @@ app.layout = html.Div(
 
 def IDgen():
     idlen = 10
+    collisions = 0
     ID = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(idlen)) #generate ID
     while os.path.exists(UPLOAD_FOLDER + "/" + str(ID)):
+        collisions += 1
+        if collisions >= 10:
+            collisions = 0
+            idlen = idlen + 1
         ID = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(idlen)) #generate new ID
     print(ID)
     return str(ID)
