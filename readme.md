@@ -1,6 +1,6 @@
 This is a Django application with a dash app embedded inside it. 
 1. Activate the virtual environment 
-> source myenv/bin/activate
+> source myenv/bin/activate <br />
 > pip3 install -r requirements.txt
 2. cd into capstone directory 
 3. run the server 
