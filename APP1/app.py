@@ -14,7 +14,11 @@ import random
 cwd = os.getcwd()
 UPLOAD_FOLDER = "/project/app_uploaded_files"
 ALLOWED_EXTENSIONS = set(['raw', 'fasta'])
-msconvert = "C:/Program Files/ProteoWizard/ProteoWizard 3.0.19073.85be84641/msconvert.exe"
+
+#YOUR INSTALLATION PATH TO MSCONVERT WILL VARY
+#msconvert = "C:/Program Files/ProteoWizard/ProteoWizard 3.0.19073.85be84641/msconvert.exe"
+msconvert = "C:/Program Files/ProteoWizard/ProteoWizard 3.0.19082.ade61137d/msconvert.exe"
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 

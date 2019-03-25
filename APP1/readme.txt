@@ -5,6 +5,7 @@ features:
 generate unique directory ID
 upload and save to directory
 msconvert if raw; no convert required if fasta; no upload allowed if other
+    side: msconvert path will vary on your machine
 prints ID and path (todo output in a manner that can pass to APP2)
 
 note: might move msconvert to APP3 in future to reduce user wait times within APP1
