@@ -5,15 +5,22 @@
  {% endblock %}
 
  {% block content %}
+
    <form method="post" enctype="multipart/form-data">
-     {% csrf_token %}
-     <input type="file" name="myfile">
-     <button type="submit">Upload</button>
-   </form>
+		 {% csrf_token %}
+
+		<div class="custom-file">
+    	<input type="file" name= "myfile"class="custom-file-input" id="validatedCustomFile" required>
+    	<label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+			<button id= "submitButton" type = "submit" class="btn btn-primary">Upload</button>
+    </div>
 
 
+	 </form>
+
+	 </div>
    {% if uploaded_file_url %}
      <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
      <p>See Results at: <a href="{{ redirectURL }}">{{ redirectURL }}</a></p>
    {% endif %}
- {% endblock %}
+{% endblock %}
