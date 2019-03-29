@@ -19,7 +19,10 @@ from upload import views as upload_view
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
-	path(r'home/', upload_view.upload_file, name = 'home'),
+	path(r'', upload_view.upload_file, name = 'home'),
 	path('dash_results/', include('dash_results.urls')),
+	path('home/', upload_view.upload_file),
+	path('about/',upload_view.about,name ='about'),
+	path('contact/', upload_view.contact,name ='contact'),
 
 ]

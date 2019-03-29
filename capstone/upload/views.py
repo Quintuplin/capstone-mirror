@@ -14,3 +14,12 @@ def upload_file(request):
             'redirectURL': redirectURL
         })
     return render(request, 'upload.html')
+
+def about(request):
+
+    return render(request, 'about.html')
+
+
+def contact(request):
+
+	return render(request, 'contact.html')
