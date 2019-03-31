@@ -1,12 +1,25 @@
+#R specific ignores (in case we start using it again)
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
-.mzML
-.RAW
-.vscode
-.json
-*.mzML
-*.RAW
-__pycache__
-*.db
+
+# Project specific ignores
+*.mzml
+*.raw
+
+# Python compiled file ignore
+__pycache__/
+
+# Environments - these should be generated on a per-machine basis, but doing so might cause another war so fine keep it
+# .env
+# .venv
+# env/
+# venv/
+# myenv/
+# ENV/
+# env.bak/
+# venv.bak/
+
+# User settings - to not mess with each other's setups
+.vscode/settings.json
