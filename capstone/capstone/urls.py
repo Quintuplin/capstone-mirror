@@ -18,11 +18,14 @@ from django.urls import path, include
 from upload import views as upload_view
 
 urlpatterns = [
+	#localhost:8000/admin takes to admin page
     path(r'admin/', admin.site.urls),
+	#localhost:8000 takes to upload page
 	path(r'', upload_view.upload_file, name = 'home'),
+	#localhost:8000/dash_results takes use to dash app
 	path('dash_results/', include('dash_results.urls')),
-	path('home/', upload_view.upload_file),
-	path('about/',upload_view.about,name ='about'),
-	path('contact/', upload_view.contact,name ='contact'),
+	#localhost:8000/upload/someurl takees us to that page like contact, about, and home
+	path(r'upload/', include('upload.urls')),
+
 
 ]
