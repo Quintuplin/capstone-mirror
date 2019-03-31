@@ -16,14 +16,18 @@ def upload_file(request):
         uploaded_file_url = fs.url(filename)
 		#this will redirct us to the dash_app
         redirectURL = '/dash_results/'
-    return render(request, 'upload.html',{
-	  'uploaded_file_url': uploaded_file_url,
-	  'redirectURL': redirectURL
-	})
-#this renders the about.html page
+		#render the upload.html file and pass the url for the file and the url to redirect
+        return render(request, 'upload.html', {
+            'uploaded_file_url': uploaded_file_url,
+            'redirectURL': redirectURL
+        })
+    return render(request, 'upload.html')
+
 def about(request):
+
     return render(request, 'about.html')
 
-#renders the contact.html page
+
 def contact(request):
+
 	return render(request, 'contact.html')
