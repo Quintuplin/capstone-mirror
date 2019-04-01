@@ -10,8 +10,9 @@
 
 # Python compiled file ignore
 __pycache__/
+.pyc
 
-# Environments - these should be generated on a per-machine basis, but doing so might cause another war so fine keep it
+# Environments - these should be generated on a per-machine basis
 .env
 .venv
 env/
