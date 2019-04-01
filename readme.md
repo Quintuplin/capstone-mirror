@@ -12,12 +12,12 @@ Linux Instructions
 python3 -m venv env / python3 -m venv myenv
 2. Activate the virtual environment <br /> 
 source env/bin/activate / source myenv/bin/activate 
-3. Move the terminal to the capstone directory<br />
-cd capstone
-4. Install dependencies and migrate assets<br /> 
+3. Install dependencies<br /> 
 pip install -r requirements.txt<br /> 
-python3 manage.py migrate
+4. Move the terminal to the capstone directory<br />
+cd capstone
 5. run the server <br /> 
+python3 manage.py migrate <br /> 
 python3 manage.py runserver <br /> 
 
 Windows (vscode) Instructions
@@ -28,13 +28,13 @@ in vscode, CTRL + SHIFT + P<br />
 python: select interpreter<br /> 
 select the python venv<br /> 
 close and reopen the vscode terminal subwindow
-3. Move the terminal to the capstone directory<br />
-cd capstone
-4. Install dependencies and migrate assets<br /> 
+3. Install dependencies<br /> 
 pip install -r requirements.txt<br /> 
-python manage.py migrate
-5. Run the server<br /> 
-python manage.py runserver<br /> 
+4. Move the terminal to the capstone directory<br />
+cd capstone
+5. run the server <br /> 
+python3 manage.py migrate <br /> 
+python3 manage.py runserver <br /> 
 
 ------------------------------------------------------------------------------- <br />
 
