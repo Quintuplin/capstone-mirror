@@ -1,6 +1,6 @@
 # Final Stretch
 
-##Saves to uploads folder, which is now just outside the django app but still within the github sync
+## Saves to uploads folder, which is now just outside the django app but still within the github sync
 
 ### Note: env should not be synced because there are some OS-specific (and potentially user-specific) quirks. It's much safer to simply make your own venv env (or venv myenv if you so prefer) and not sync it. But I'll let y'all decide if it's worth gitignoring it or if we have bigger fish to fry.<br /> 
 
