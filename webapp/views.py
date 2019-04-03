@@ -1,7 +1,9 @@
 from django.shortcuts import redirect, render
 from django.core.files.storage import FileSystemStorage
+from django.urls import path
 
-from .modules.IDGEN import DIRgen, allowed_file
+from .modules.APP1 import DIRgen, allowed_file
+from .modules.APP2 import DIRcheck
 from capstone.settings import MEDIA_ROOT
 
 #this method was retrieved from stack overflow on 3.14.19
@@ -24,12 +26,15 @@ def upload(request):
             #TODO add 'filetype not allowed' message to user
     return render(request, 'upload.html')
 
-def results(request):#, subpage):
-    """Renders the results page.
-    Args: subpage for subpage results
-    """
-    print(request)
-    return render(request, "results.html")#, {"subpage": subpage})
+def results(request, ID):#, subpage):
+    
+    print(ID)
+    exists =  DIRcheck(ID, MEDIA_ROOT)
+    print(exists)
+    if exists != -1:
+        return render(request, "results.html")#, {"subpage": subpage})
+    else:
+        return render(request, 'upload.html')
 
 def about(request):
 

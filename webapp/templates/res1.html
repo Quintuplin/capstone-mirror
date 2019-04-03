@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+  <p id="demo"></p>
+
+  <script>
+    var ID = /[^/]*$/.exec(window.location.href)[0]
+    document.getElementById("demo").innerHTML = "ID#:<br>" + ID;
+  </script>
+<!-- 
+  <a href="#" onclick = "location.href=this.href;return false;"><img src="{% static 'img/box.jpg' %}" width="82" height="86" alt="Box"></a> -->
+  <p>Return to results page: <a href="{{ redirectURL }}">{{ this.href }}</a></p>
+{% endblock %}
