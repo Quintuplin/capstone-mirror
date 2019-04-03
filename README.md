@@ -4,11 +4,9 @@
 0. start Docker Desktop
 
 1. docker build -t=webapp .
-2. docker run --rm -p 8000:8000 webapp
+2. docker run --rm -p 8000:8000 -v uploads:/uploads webapp
 3. open http://localhost:8000<br /> 
-note: has issues with dockerignore, mkdir, folder permissions, and saved files. working on it, but y'all are welcome to aid in debugging. this issue does not exist when run by django only<br /> 
-
-## Saves to uploads folder, which is now just outside the django app but still within the github sync
+note: does not give an error message but file does not appear in actual directory; more experimentation required <br /> 
 
 ### Note: env should not be synced because there are some OS-specific (and potentially user-specific) quirks. It's much safer to simply make your own venv env (or venv myenv if you so prefer) and not sync it.<br /> 
 
