@@ -3,7 +3,7 @@ from django.core.files.storage import FileSystemStorage
 from django.urls import path
 
 from .modules.APP1 import DIRgen, allowed_file
-from .modules.APP2 import DIRcheck
+from .modules.APP2 import DIRcheck, RESULTcheck
 from capstone.settings import MEDIA_ROOT
 
 #this method was retrieved from stack overflow on 3.14.19
@@ -29,10 +29,12 @@ def upload(request):
 def results(request, ID):#, subpage):
     
     print(ID)
-    exists =  DIRcheck(ID, MEDIA_ROOT)
-    print(exists)
-    if exists != -1:
-        return render(request, "results.html")#, {"subpage": subpage})
+    DIRexists =  DIRcheck(ID, MEDIA_ROOT)
+    print(DIRexists)
+    if DIRexists != -1:
+        if RESULTcheck(ID, MEDIA_ROOT) == True:
+            return render(request, "results.html")#, {"subpage": subpage})
+        else: return render(request, "wait.html")
     else:
         return render(request, 'upload.html')
 
