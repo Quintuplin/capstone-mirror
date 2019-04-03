@@ -32,6 +32,7 @@ ADD . /app
 # write to the database.
 RUN chmod g+w /app
 RUN chmod g+w /app/db.sqlite3
+RUN chmod g+w /app/uploads
 
 # Make sure dependencies are installed
 RUN python3 -m pip install -r requirements.txt

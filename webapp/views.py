@@ -28,6 +28,7 @@ def results(request):#, subpage):
     """Renders the results page.
     Args: subpage for subpage results
     """
+    print(request)
     return render(request, "results.html")#, {"subpage": subpage})
 
 def about(request):
