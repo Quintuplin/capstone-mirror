@@ -10,11 +10,11 @@ def upload(request):
         myfile = request.FILES['myfile']
 
         if allowed_file(myfile.name):
-            DIR = DIRgen(MEDIA_ROOT)
+            ID, DIR = DIRgen(MEDIA_ROOT)
             fs = FileSystemStorage(location=DIR)
             fs.save(myfile.name, myfile)
             uploaded_file_url = DIR
-            redirectURL = '/results/'
+            redirectURL = ID
             return render(request, 'upload.html', {
                 'uploaded_file_url': uploaded_file_url,
                 'redirectURL': redirectURL

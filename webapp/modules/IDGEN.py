@@ -10,7 +10,7 @@ def IDgen(basePath):
     ID = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(idlen)) #generate ID
     while os.path.exists(os.path.join(basePath, str(ID))):
         collisions += 1
-        if collisions >= 10:
+        if collisions >= 100:
             collisions = 0
             idlen = idlen + 1
         ID = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(idlen)) #generate new ID
@@ -22,7 +22,7 @@ def DIRgen(basePath):
     DIR = os.path.join(basePath, ID)
     os.mkdir(DIR)
     print(DIR)
-    return DIR
+    return ID, DIR
 
 def allowed_file(filename):
     return '.' in filename and \

@@ -24,5 +24,5 @@ urlpatterns = [
 	path('home/', views.upload, name='home'),
     path('upload/', views.upload, name='home'),
     path('', views.upload, name='home'),
-    re_path(r'^[\w]', views.results, name="results"),
+    re_path(r'^[\w]', views.results, name="results"), ##everything else gets routed through views.results
 ]
