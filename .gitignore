@@ -6,17 +6,21 @@
 #https://github.com/Microsoft/python-sample-vscode-django-tutorial
 #and might suggest that we could combine both docker and django 
 
-# Project specific ignores
+#R specific ignores (in case we start using it again)
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# large file ignores
 *.mzml
 *.raw
-uploads/
-#exception to include uploads folder
-!uploads/.gitkeep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+.pyc
 
 # C extensions
 *.so

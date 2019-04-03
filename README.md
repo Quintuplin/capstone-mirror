@@ -1,4 +1,4 @@
-# Fusion Fork: A Bold New World
+# v2; no compromises needed edition
 
 ## TO RUN THE ENTIRE THING IN DOCKER
 1. docker build -t=webapp .
@@ -6,50 +6,46 @@
 3. open http://localhost:8000<br /> 
 note: has issues with dockerignore, mkdir, folder permissions, and saved files. working on it, but y'all are welcome to aid in debugging. this issue does not exist when run by django only<br /> 
 
-## Note: env is not synced because there are some OS-specific (and potentially user-specific) quirks. It's much safer to simply make your own venv env and not sync it. <br /> 
+## Saves to uploads folder, which is now just outside the django app but still within the github sync
+
+### Note: env should not be synced because there are some OS-specific (and potentially user-specific) quirks. It's much safer to simply make your own venv env (or venv myenv if you so prefer) and not sync it.<br /> 
 
 ## To run the app django-style
+0. Ensure that you have installed and are using python 3.6.8
+
 Linux Instructions
 1. Setup the virtual environment <br /> 
 python3 -m venv env
 2. Activate the virtual environment <br /> 
-source env/bin/activate <br />
-pip3 install -r requirements.txt
-3. Migrate the assets <br /> 
-python3 manage.py migrate
+source env/bin/activate
+3. Install dependencies<br /> 
+pip install -r requirements.txt<br /> 
 4. run the server <br /> 
+python3 manage.py migrate <br /> 
 python3 manage.py runserver <br /> 
 
-Windows vscode Instructions
-1. Set up django-friendly virtual environment<br /> 
-in vscode terminal first time running in this environment:<br /> 
+Windows (vscode) Instructions
+1. Setup the virtual environment <br /> 
 python -m venv env
-2. Switch to virtual environment<br /> 
+2. Activate the virtual environment vscode-style<br /> 
 in vscode, CTRL + SHIFT + P<br /> 
 python: select interpreter<br /> 
 select the python venv<br /> 
 close and reopen the vscode terminal subwindow
-3. Activate the virtual environment<br /> 
-in vscode terminal window<br /> 
-pip install -r requirements.txt
-4. Migrate assets<br /> 
-python manage.py migrate
-4. Run the server<br /> 
-python manage.py runserver<br /> 
+3. Install dependencies<br /> 
+pip install -r requirements.txt<br /> 
+4. run the server <br /> 
+python manage.py migrate <br /> 
+python manage.py runserver <br /> 
 
 ------------------------------------------------------------------------------- <br />
 
 * uploads go into the uploads directory with a custom URL <br />
-* capstone directory is Django high level support files <br />
-* webapp directoy is the django app and full feature layer <br />
+* capstone directory controls all of the URL <br /> 
+* dash_results directory is the dash app <br /> 
+* upload directoy is the django upload app that links to the dash app <br />
 * manage.py is how django controls everything- migrating, running the server, making apps etc. <br /> 
 
-notable files include;<br /> 
-    webapp/urls.py (handles django links to each page)<br /> 
-    webapp/views.py (defines functionality for each page)<br /> 
-    webapp/templates/webapp/ (html files for each page)<br /> 
-    webapp/modules/ (supporting modules for each page as needed)<br /> 
-    
 ## Other notes<br /> 
 
 some amazing information here<br /> 
