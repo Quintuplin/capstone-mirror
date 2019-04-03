@@ -22,6 +22,7 @@ urlpatterns = [
 	path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
 	path('home/', views.upload, name='home'),
+    path('upload/', views.upload, name='home'),
     path('', views.upload, name='home'),
-    path("results/", views.results, name="results"),
+    re_path(r'^[\w]', views.results, name="results"),
 ]
