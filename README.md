@@ -1,6 +1,8 @@
 # v2; no compromises needed edition
 
 ## TO RUN THE ENTIRE THING IN DOCKER
+0. start Docker Desktop
+
 1. docker build -t=webapp .
 2. docker run --rm -p 8000:8000 webapp
 3. open http://localhost:8000<br /> 
