@@ -52,6 +52,8 @@ some amazing information here<br />
 https://code.visualstudio.com/docs/python/tutorial-django<br /> 
 and here<br /> 
 https://github.com/Microsoft/python-sample-vscode-django-tutorial<br /> 
+https://bitbucket.org/m_c_/sample-dash/overview<br /> 
+https://buildmedia.readthedocs.org/media/pdf/django-plotly-dash/latest/django-plotly-dash.pdf<br /> 
 
 ## To add a page<br /> 
 Go to webapp

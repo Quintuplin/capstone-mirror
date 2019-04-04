@@ -1,5 +1,9 @@
 from django.urls import path, re_path
+from django.views.generic import RedirectView
+from django.conf.urls import url
 from . import views
+
+favicon_view = RedirectView.as_view(url='/static/img/favicon.ico', permanent=True)
 
 """
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,6 +23,7 @@ Including another URLconf
 
 
 urlpatterns = [
+    re_path(r'^favicon\.ico$', favicon_view),
 	path('about/', views.about, name='about'),
     path('about', views.about, name='about'),
     path('contact/', views.contact, name='contact'),

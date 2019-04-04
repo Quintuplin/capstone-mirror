@@ -22,21 +22,21 @@ def upload(request):
                 'redirectURL': redirectURL
             })
         else:
-            return render(request, 'upload.html') #reset upload page if not allowed
-            #TODO add 'filetype not allowed' message to user
+            return redirect('home')
     return render(request, 'upload.html')
 
 def results(request, ID):#, subpage):
-    
-    print(ID)
+    print("ID: " + ID)
     DIRexists =  DIRcheck(ID, MEDIA_ROOT)
-    print(DIRexists)
+    print("DIR: " + str(DIRexists))
     if DIRexists != -1:
         if RESULTcheck(ID, MEDIA_ROOT) == True:
-            return render(request, "results.html")#, {"subpage": subpage})
+            if ID == 'favicon.ico':
+                return render(request, "res1.html")
+            else: return render(request, "results.html")#, {"subpage": subpage})
         else: return render(request, "wait.html")
     else:
-        return render(request, 'upload.html')
+        return redirect('home')
 
 def about(request):
 
