@@ -11,7 +11,7 @@ def RESULTcheck(ID, basePath):
     if os.path.exists(os.path.join(basePath, str(ID))):
         print("Path Found")
         for root, dirs, files in os.walk(os.path.join(basePath, str(ID)), topdown=False):
-            print("Checking Contents")
+            print("Checking Contents in: " + root)
             for name in files:
                 print (name)
                 if name.split('.')[-1] != "raw":
