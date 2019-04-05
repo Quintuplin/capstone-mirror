@@ -31,8 +31,8 @@ def results(request, ID):#, subpage):
     print("DIR: " + str(DIRexists))
     if DIRexists != -1:
         if RESULTcheck(ID, MEDIA_ROOT) == True:
-            # if ID == 'favicon.ico':
-            #     return render(request, "res1.html")
+            if ID == 'favicon.ico':
+                return render(request, "res1.html")
             else: return render(request, "results.html")#, {"subpage": subpage})
         else: return render(request, "wait.html")
     else:
