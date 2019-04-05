@@ -6,13 +6,38 @@
   <p id="demo"></p>
 
   <script>
-    var ID = /[^/]*$/.exec(window.location.href)[0]
+    var ID = /[^/]*$/.exec(window.location.href)[0];
     document.getElementById("demo").innerHTML = "ID#:<br>" + ID;
   </script>
 
-  <a href="#" onclick = "location.href=this.href +'/Sample';return false;"><img src="{% static 'img/box.jpg' %}" width="82" height="86" alt="Box"></a>
-  <a href="#" onclick = "location.href=this.href +'/LC';return false;"><img src="{% static 'img/box.jpg' %}" width="82" height="86" alt="Box"></a>
-  <a href="#" onclick = "location.href=this.href +'/Source';return false;"><img src="{% static 'img/box.jpg' %}" width="82" height="86" alt="Box"></a>
-  <a href="#" onclick = "location.href=this.href +'/MS1';return false;"><img src="{% static 'img/box.jpg' %}" width="82" height="86" alt="Box"></a>
-  <a href="#" onclick = "location.href=this.href +'/MS2';return false;"><img src="{% static 'img/box.jpg' %}" width="82" height="86" alt="Box"></a>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- <script type="text/javascript"charset="utf-8">
+      d3.text("/EEE67VUIG7" + ID + "/data.csv", function(data) {
+          var parsedCSV = d3.csv.parseRows(data);
+
+          for (row in parsedCSV){
+            console.error(row);
+          }
+      });
+  </script> -->
+
+  <a href="#" onclick = "location.href=this.href +'/Sample';return false;"><img id = "sampleimage" src="{% static 'img/green.jpg' %}") width="82" height="86" alt="Box"></a>
+  <a href="#" onclick = "location.href=this.href +'/LC';return false;"><img id = "lcimage" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
+  <a href="#" onclick = "location.href=this.href +'/Source';return false;"><img id = "sourceimage" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
+  <a href="#" onclick = "location.href=this.href +'/MS1';return false;"><img id = "ms1image" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
+  <a href="#" onclick = "location.href=this.href +'/MS2';return false;"><img id = "ms2image" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
+
+  <script>
+    var images = ["green", "orange", "red"];
+    var subpages = ["sampleimage", "lcimage", "sourceimage", "ms1image", "ms2image"];
+    for (subpage in subpages){
+      randint = Math.floor(Math.random() * 3);
+      image = "img/" + images[randint] + ".jpg";
+      // sample = "{% static '" + image + "' %}";
+      sample = "static/" + image
+      console.log(image +":" + subpages[subpage] + ":" + sample)
+      document.getElementById(subpages[subpage]).setAttribute("src", sample);
+    }
+  </script>
 {% endblock %}
