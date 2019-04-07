@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render
 from django.core.files.storage import FileSystemStorage
 from django.urls import path
 
+import threading
+
 from .modules.APP1 import DIRgen, allowed_file
 from .modules.APP3 import RESULTgen
 from .modules.APP2 import DIRcheck, RESULTcheck

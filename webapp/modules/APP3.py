@@ -16,6 +16,7 @@ def RESULTgen(ID, basePath, staticPath):
                 print (name)
 
     completeName = os.path.join(basePath, str(ID), "report.csv")    
+    doneName = os.path.join(basePath, str(ID), "app3.done")    
 
     if found:
         #this is the dummy graph output command
@@ -31,4 +32,7 @@ def RESULTgen(ID, basePath, staticPath):
             file1.write(subpage + ";" + sample + "\n")
         file1.close()
 
+        file2 = open(doneName, "w")
+        file2.write("Report Generated\n")
+        file2.close()
     return found

@@ -15,7 +15,7 @@ def RESULTcheck(ID, basePath):
             print("Checking Contents in: " + root)
             for name in files:
                 print (name)
-                if name.split('.')[-1] != "raw":
+                if name.split('.')[-1] == "done":
                     found = True
             for name in dirs:
                 print (name)
