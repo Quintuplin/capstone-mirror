@@ -19,16 +19,4 @@ def RESULTcheck(ID, basePath):
                     found = True
             for name in dirs:
                 print (name)
-    #temp dummy filegen so it returns true on second call
-    completeName = os.path.join(basePath, str(ID), "report.csv")    
-
-    file1 = open(completeName, "w")
-    images = ["green", "orange", "red"]
-    subpages = ["sampleimage", "lcimage", "sourceimage", "ms1image", "ms2image"]
-    for subpage in subpages:
-        sample = "{% static 'img/" + str(images[random.randint(0,2)]) +".jpg' %}"
-        print(subpage + ";" + sample + "\n")
-        file1.write(subpage + ";" + sample + "\n")
-    file1.close()
-
     return found

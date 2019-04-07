@@ -3,8 +3,9 @@ from django.core.files.storage import FileSystemStorage
 from django.urls import path
 
 from .modules.APP1 import DIRgen, allowed_file
+from .modules.APP3 import RESULTgen
 from .modules.APP2 import DIRcheck, RESULTcheck
-from capstone.settings import MEDIA_ROOT
+from capstone.settings import MEDIA_ROOT, STATIC_ROOT
 
 #this method was retrieved from stack overflow on 3.14.19
 def upload(request):
@@ -17,6 +18,9 @@ def upload(request):
             fs.save(myfile.name, myfile)
             uploaded_file_url = DIR
             redirectURL = ID
+
+            print(RESULTgen(ID, MEDIA_ROOT, STATIC_ROOT))
+            
             return render(request, 'upload.html', {
                 'uploaded_file_url': uploaded_file_url,
                 'redirectURL': redirectURL
