@@ -17,6 +17,10 @@
 *.raw
 *.csv
 
+# uploads directory contents ignore (but directory itself include)
+uploads/
+!.gitkeep
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
