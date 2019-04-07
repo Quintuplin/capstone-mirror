@@ -2,14 +2,23 @@ from django.shortcuts import redirect, render
 from django.core.files.storage import FileSystemStorage
 from django.urls import path
 
-import threading
+import threading, time
 
 from .modules.APP1 import DIRgen, allowed_file
 from .modules.APP3 import RESULTgen
 from .modules.APP2 import DIRcheck, RESULTcheck
 from capstone.settings import MEDIA_ROOT, STATIC_ROOT
 
-#this method was retrieved from stack overflow on 3.14.19
+def APP3_Thread(ID, MEDIA_ROOT, STATIC_ROOT):
+    print (threading.currentThread().getName(), 'Starting')
+    time.sleep(10) #this is to simulate APP3 calculation time
+    RESULTgen(ID, MEDIA_ROOT, STATIC_ROOT)
+    print (threading.currentThread().getName(), 'Exiting')
+
+def APP2_Thread(request, uploaded_file_url, redirectURL):
+    print (threading.currentThread().getName(), 'Starting')
+    print (threading.currentThread().getName(), 'Exiting')
+
 def upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
@@ -21,7 +30,11 @@ def upload(request):
             uploaded_file_url = DIR
             redirectURL = ID
 
-            print(RESULTgen(ID, MEDIA_ROOT, STATIC_ROOT))
+            A3 = threading.Thread(name="APP3", target=APP3_Thread, args = (ID, MEDIA_ROOT, STATIC_ROOT))
+            A2 = threading.Thread(name="APP2", target=APP2_Thread, args = (request, uploaded_file_url, redirectURL))
+            
+            A3.start()
+            A2.start()
             
             return render(request, 'upload.html', {
                 'uploaded_file_url': uploaded_file_url,
