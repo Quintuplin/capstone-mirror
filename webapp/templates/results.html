@@ -28,6 +28,8 @@
   <a href="#" onclick = "location.href=this.href +'/MS1';return false;"><img id = "ms1image" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
   <a href="#" onclick = "location.href=this.href +'/MS2';return false;"><img id = "ms2image" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
 
+  <img id = "g1" src="" style="float: right; margin-left: 5px; margin-bottom: 5px;">
+
   <script>
     var images = ["green", "orange", "red"];
     var subpages = ["sampleimage", "lcimage", "sourceimage", "ms1image", "ms2image"];
@@ -35,9 +37,13 @@
       randint = Math.floor(Math.random() * 3);
       image = "img/" + images[randint] + ".jpg";
       // sample = "{% static '" + image + "' %}";
-      sample = "static/" + image
-      console.log(image +":" + subpages[subpage] + ":" + sample)
+      sample = "static/" + image;
+      console.log(image +":" + subpages[subpage] + ":" + sample);
       document.getElementById(subpages[subpage]).setAttribute("src", sample);
     }
+
+    sample = "uploads/" + ID + "/g1.jpg";
+    document.getElementById("g1").setAttribute("src", sample);
   </script>
+  
 {% endblock %}
