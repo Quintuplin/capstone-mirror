@@ -1,12 +1,4 @@
-# v2; no compromises needed edition
-
-## TO RUN THE ENTIRE THING IN DOCKER
-0. start Docker Desktop
-
-1. docker build -t=webapp .
-2. docker run --rm -p 8000:8000 -v uploads:/uploads webapp
-3. open http://localhost:8000<br /> 
-note: does not give an error message but file does not appear in actual directory; more experimentation required <br /> 
+# v2; webapp features branch
 
 ### Note: env should not be synced because there are some OS-specific (and potentially user-specific) quirks. It's much safer to simply make your own venv env (or venv myenv if you so prefer) and not sync it.<br /> 
 
@@ -45,6 +37,13 @@ python manage.py runserver <br />
 * dash_results directory is the dash app <br /> 
 * upload directoy is the django upload app that links to the dash app <br />
 * manage.py is how django controls everything- migrating, running the server, making apps etc. <br /> 
+
+### TO RUN THE ENTIRE THING IN DOCKER (but don't right now, implementation is incomplete)
+0. start Docker Desktop
+1. docker build -t=webapp .
+2. docker run --rm -p 8000:8000 -v uploads:/uploads webapp
+3. open http://localhost:8000<br /> 
+note: does not give an error message but file does not appear in actual directory; more experimentation required <br /> 
 
 ## Other notes<br /> 
 
