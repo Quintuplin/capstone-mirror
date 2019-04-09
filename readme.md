@@ -7,7 +7,7 @@
 ## To run the app django-style
 0. Ensure that you have installed and are using python 3.6.8
 
-Linux Instructions
+Linux Instructions (also work under Cygwin / Magnus)
 1. Setup the virtual environment <br /> 
 python3 -m venv env / python3 -m venv myenv
 2. Activate the virtual environment <br /> 
