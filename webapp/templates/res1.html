@@ -3,14 +3,18 @@
 {% load staticfiles %}
 
 {% block content %}
+
   <p id="demo"></p>
+  <p id="d2"></p>
 
   <script>
     var TD = window.location.href.split("/")
     var ID = TD[TD.length-2]
+    var subpage = TD[TD.length-1]
     document.getElementById("demo").innerHTML = "ID#:<br>" + ID;
+    document.getElementById("d2").innerHTML = "Results for:<br>" + subpage;
   </script>
-
+  
   <button onclick="goBack()">Go Back</button>
 
   <script>
