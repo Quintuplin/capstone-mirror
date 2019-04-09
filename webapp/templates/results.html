@@ -6,11 +6,13 @@
   <p id="demo"></p>
 
   <script>
-    var ID = /[^/]*$/.exec(window.location.href)[0];
+    // var ID = /[^/]*$/.exec(window.location.href)[0];
+    var TD = window.location.href.split("#")[0].split("/")
+    var ID = TD[TD.length-1]
     document.getElementById("demo").innerHTML = "ID#:<br>" + ID;
   </script>
 
-  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
 
   <!-- <script type="text/javascript"charset="utf-8">
       d3.text("/EEE67VUIG7" + ID + "/data.csv", function(data) {
@@ -22,13 +24,28 @@
       });
   </script> -->
 
-  <a href="#" onclick = "location.href=this.href +'/Sample';return false;"><img id = "sampleimage" src="{% static 'img/green.jpg' %}") width="82" height="86" alt="Box"></a>
+  <!-- https://codepen.io/creotip/pen/iLsIq -->
+  <script id="loadsub" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('#sample').click(function(){ 
+            if(!$('#iframe').length) {
+                    $('#iframeHolder').html('<iframe id="iframe" src="//player.vimeo.com/video/90429499" width="700" height="450"></iframe>');
+            }
+        });   
+    });
+  </script>
+
+
+  <a id = "sample" href="#" onclick = "location.href=this.href +'/Sample';return false;"><img id = "sampleimage" src="{% static 'img/green.jpg' %}") width="82" height="86" alt="Box"></a>
   <a href="#" onclick = "location.href=this.href +'/LC';return false;"><img id = "lcimage" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
   <a href="#" onclick = "location.href=this.href +'/Source';return false;"><img id = "sourceimage" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
   <a href="#" onclick = "location.href=this.href +'/MS1';return false;"><img id = "ms1image" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
   <a href="#" onclick = "location.href=this.href +'/MS2';return false;"><img id = "ms2image" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
 
   <img id = "g1" src="" style="float: right; margin-left: 5px; margin-bottom: 5px;">
+
+  <div id="iframeHolder"></div>
 
   <script>
     var images = ["green", "orange", "red"];
