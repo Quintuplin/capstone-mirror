@@ -44,13 +44,26 @@ def upload(request):
             return redirect('home')
     return render(request, 'upload.html')
 
-def results(request, ID):#, subpage):
+# def results(request, ID):#, subpage):
+#     print("ID: " + ID)
+#     DIRexists =  DIRcheck(ID, MEDIA_ROOT)
+#     print("DIR: " + str(DIRexists))
+#     if DIRexists != -1:
+#         if RESULTcheck(ID, MEDIA_ROOT) == True:
+#             return render(request, "results.html")
+#         else: return render(request, "wait.html")
+#     else:
+#         return redirect('home')
+
+def results(request, ID, subpage=None):
     print("ID: " + ID)
     DIRexists =  DIRcheck(ID, MEDIA_ROOT)
     print("DIR: " + str(DIRexists))
     if DIRexists != -1:
         if RESULTcheck(ID, MEDIA_ROOT) == True:
-            return render(request, "results.html")
+            if subpage is not None:
+                return render(request, "res1.html")
+            else: return render(request, "results.html")
         else: return render(request, "wait.html")
     else:
         return redirect('home')

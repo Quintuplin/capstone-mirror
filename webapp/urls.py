@@ -19,14 +19,11 @@ Including another URLconf
 """
 
 urlpatterns = [
-	path('about/', views.about, name='about'),
     path('about', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
     path('contact', views.contact, name='contact'),
-	path('home/', views.upload, name='home'),
     path('home', views.upload, name='home'),
-    path('upload/', views.upload, name='home'),
     path('upload', views.upload, name='home'),
     path('', views.upload, name='home'),
     path('<ID>', views.results, name='results'),
+    path('<ID>/<subpage>', views.results, name='results'),
 ]

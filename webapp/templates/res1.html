@@ -6,10 +6,25 @@
   <p id="demo"></p>
 
   <script>
-    var ID = /[^/]*$/.exec(window.location.href)[0]
+    var TD = window.location.href.split("/")
+    var ID = TD[TD.length-2]
     document.getElementById("demo").innerHTML = "ID#:<br>" + ID;
   </script>
-<!-- 
-  <a href="#" onclick = "location.href=this.href;return false;"><img src="{% static 'img/box.jpg' %}" width="82" height="86" alt="Box"></a> -->
-  <p>Return to results page: <a href="{{ redirectURL }}">{{ this.href }}</a></p>
+
+  <button onclick="goBack()">Go Back</button>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  
+  <img id = "g1" src="" style="float: right; margin-left: 5px; margin-bottom: 5px;">
+
+  <script>
+    sample = "uploads/" + ID + "/g1.jpg";
+    console.log (sample)
+    document.getElementById("g1").setAttribute("src", '../' + sample);
+  </script>
+
 {% endblock %}
