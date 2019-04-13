@@ -40,19 +40,17 @@
   <script>
     $(function() {
       console.log( 'ready!' );
-    });
 
-    function read(data){
-      var byline = data.split(/\r\n|\r|\n/);
-      for (line in byline){
-        console.log(line);
+      function read(data){
+        console.log(data);
       }
-    }
-    sample = "uploads/" + ID + "/report.txt";
+      
+      sample = "uploads/" + ID + "/report.txt";
 
-    $.get(sample, function(data) {
-      read(data);
-    }, 'text');
+      $.get(sample, function(data) {
+        read(data);
+      }, 'text');
+    });
   </script>
 
 {% endblock %}
