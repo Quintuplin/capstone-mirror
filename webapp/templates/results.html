@@ -17,39 +17,34 @@
   <a href="" onclick = "location.href=this.href +'/MS2';return false;"><img id = "ms2image" src="{% static 'img/green.jpg' %}" width="82" height="86" alt="Box"></a>
 
   <script>
-    var images = ["green", "orange", "red"];
-    var subpages = ["sampleimage", "lcimage", "sourceimage", "ms1image", "ms2image"];
-    source = "uploads/" + ID + "/g1.jpg";
-    for (subpage in subpages){
-      randint = Math.floor(Math.random() * 3);
-      image = "img/" + images[randint] + ".jpg";
-      sample = "static/" + image;
-      console.log(image +":" + subpages[subpage] + ":" + sample);
-      document.getElementById(subpages[subpage]).setAttribute("src", sample);
-    }
-
-  </script>
-
-  <!-- <script>
-    sample = "uploads/" + ID + "/report.csv";
-    var fs = require("fs");
-    fs.readFile(sample, function(text){
-        var textByLine = text.split("\n")
-    });
-  </script> -->
-  <script>
     $(function() {
       console.log( 'ready!' );
 
       function read(data){
         console.log(data);
+        var results = data.split("\n");
+        
+        var image = "green"
+        var images = ["green", "orange", "red"];
+        var subpages = ["sampleimage", "lcimage", "sourceimage", "ms1image", "ms2image"];
+
+        for (x in subpages){
+          image = String(results[x]).split(" ")[1]
+          
+          sample = "static/" + "img/" + image + ".jpg";
+          console.log(image +":" + subpages[x] + ":" + sample);
+          document.getElementById(subpages[x]).setAttribute("src", sample);
+        }
       }
-      
+
       sample = "uploads/" + ID + "/report.txt";
 
       $.get(sample, function(data) {
         read(data);
-      }, 'text');
+      }, "text");
+
+      
+
     });
   </script>
 
