@@ -15,7 +15,7 @@ def RESULTgen(ID, basePath, staticPath):
             for name in dirs:
                 print (name)
 
-    completeName = os.path.join(basePath, str(ID), "report.csv")    
+    completeName = os.path.join(basePath, str(ID), "report.txt")    
     doneName = os.path.join(basePath, str(ID), "app3.done")    
 
     if found:
@@ -27,9 +27,9 @@ def RESULTgen(ID, basePath, staticPath):
         images = ["green", "orange", "red"]
         subpages = ["sampleimage", "lcimage", "sourceimage", "ms1image", "ms2image"]
         for subpage in subpages:
-            sample = "{% static 'img/" + str(images[random.randint(0,2)]) +".jpg' %}"
-            print(subpage + ";" + sample + "\n")
-            file1.write(subpage + ";" + sample + "\n")
+            sample =str(images[random.randint(0,2)])
+            print(subpage + " " + sample + "\n")
+            file1.write(subpage + " " + sample + "\n")
         file1.close()
 
         file2 = open(doneName, "w")
