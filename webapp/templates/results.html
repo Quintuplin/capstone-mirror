@@ -37,5 +37,21 @@
         var textByLine = text.split("\n")
     });
   </script> -->
+  <script>
+    $(function() {
+      console.log( 'ready!' );
+    });
+    
+    function read(data){
+      var byline = data.split(/\r\n|\r|\n/);
+      for (line in byline){
+        console.log(line);
+      }
+    }
+
+    $.get('file_to_read.txt', function(data) {
+      read(data);
+    }, 'text');
+  </script>
 
 {% endblock %}
