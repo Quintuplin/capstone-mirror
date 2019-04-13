@@ -1,5 +1,6 @@
 from django.http.response import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.core.files import File
 
 from .server import server
 
@@ -15,6 +16,12 @@ def dispatcher(request):
         'method': request.method,
         'content_type': request.content_type
     }
+    with open('/home/misae/Documents/capstone-2019-nist/test.txt', 'r') as f:
+	    myfile = File(f)
+	    print(myfile.read())
+
+
+
     with server.test_request_context(request.path, **params):
         server.preprocess_request()
         try:
@@ -26,6 +33,7 @@ def dispatcher(request):
 
 def dash_index(request, **kwargs):
     ''' '''
+
     return HttpResponse(dispatcher(request))
 
 
