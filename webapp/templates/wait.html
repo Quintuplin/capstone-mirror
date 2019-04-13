@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-
 {% load staticfiles %}
-
 {% block content %}
+
   <p id="demo"></p>
 
   <script>
     var ID = /[^/]*$/.exec(window.location.href)[0]
     document.getElementById("demo").innerHTML = "PLEASE WAIT: THE REPORT FOR ID#:<br>" + ID +" IS NOT YET READY. PLEASE REFRESH THE PAGE IN A FEW MINUTES";
   </script>
+
 {% endblock %}
