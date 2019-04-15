@@ -21,7 +21,15 @@ def RESULTgen(ID, basePath, staticPath):
     if found:
         #this is the dummy graph output command
         #when APP3 is imported from v1, the 'g1.jpg' file will instead be directly generated into the results folder
+        
+        #img dummy
         copyfile(os.path.join(staticPath, "img", "line.jpg"), os.path.join(basePath, str(ID), "g1.jpg"))
+
+        #graph dummy
+        file2a = open(os.path.join(staticPath, "sample.csv"), "r")
+        file2b = open(os.path.join(basePath, str(ID), "results1.csv"), "w")
+        for line in file2a:
+            file2b.write(line)
 
         file1 = open(completeName, "w")
         images = ["green", "orange", "red"]
@@ -32,7 +40,7 @@ def RESULTgen(ID, basePath, staticPath):
             file1.write(subpage + " " + sample + "\n")
         file1.close()
 
-        file2 = open(doneName, "w")
-        file2.write("Report Generated\n")
-        file2.close()
+        file3 = open(doneName, "w")
+        file3.write("Report Generated\n")
+        file3.close()
     return found
