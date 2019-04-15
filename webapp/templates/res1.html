@@ -31,33 +31,36 @@
   <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 
   <script>
-  var chart = new CanvasJS.Chart("chartContainer", {
-    animationEnabled: true,
-    theme: "light2",
-    title:{
-      text: "Simple Line Chart"
-    },
-    axisY:{
-      includeZero: false
-    },
-    data: [{        
-      type: "line",       
-      dataPoints: [
-        { y: 450 },
-        { y: 414},
-        { y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
-        { y: 460 },
-        { y: 450 },
-        { y: 500 },
-        { y: 480 },
-        { y: 480 },
-        { y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-        { y: 500 },
-        { y: 480 },
-        { y: 510 }
-      ]
-    }]
-  });
-  chart.render();
+    var dataPoints = [];
+    
+    function getDataPointsFromCSV(csv) {
+        var dataPoints = csvLines = points = [];
+        csvLines = csv.split(/[\r?\n|\r|\n]+/);
+            
+        for (var i = 0; i < csvLines.length; i++)
+            if (csvLines[i].length > 0) {
+                points = csvLines[i].split(",");
+                dataPoints.push({ 
+                    x: parseFloat(points[0]), 
+                    y: parseFloat(points[1]) 		
+          });
+      }
+        return dataPoints;
+    }
+      
+    sample = "../uploads/" + ID + "/results1.csv";
+    $.get(sample, function(data) {
+        var chart = new CanvasJS.Chart("chartContainer", {
+            title: {
+          text: "Chart from CSV",
+            },
+            data: [{
+          type: "line",
+          dataPoints: getDataPointsFromCSV(data)
+      }]
+    });
+        chart.render();
+ 
+});
   </script>
 {% endblock %}
