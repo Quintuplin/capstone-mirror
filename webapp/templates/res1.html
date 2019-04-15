@@ -25,12 +25,68 @@
     }
   </script>
 
-  {% comment %} https://canvasjs.com/html5-javascript-line-chart/ {% endcomment %}
-  <div id="chartContainer" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
-  <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-  <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+  {% comment %} https://www.chartjs.org/docs/latest/getting-started/usage.html {% endcomment %}
+  <canvas id="myChart" width="400" height="400"></canvas>
+<script>
+var dataPoints = [];
+  function getDataPointsFromCSV(csv) {
+      var dataPoints = csvLines = points = [];
+      csvLines = csv.split(/[\r?\n|\r|\n]+/);
+          
+      for (var i = 0; i < csvLines.length; i++)
+          if (csvLines[i].length > 0) {
+              points = csvLines[i].split(",");
+              dataPoints.push({ 
+                  x: parseFloat(points[0]), 
+                  y: parseFloat(points[1]) 		
+        });
+    }
+      return dataPoints;
+  }
 
-  <script>
+var ctx = document.getElementById('myChart');
+sample = "../uploads/" + ID + "/results1.csv";
+
+$.get(sample, function(data) {
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: [{
+              label: '# of Votes',
+              data: getDataPointsFromCSV(data),
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+});
+</script>
+  {% comment %} <script>
     var dataPoints = [];
     
     function getDataPointsFromCSV(csv) {
@@ -62,5 +118,5 @@
         chart.render();
  
 });
-  </script>
+  </script> {% endcomment %}
 {% endblock %}
