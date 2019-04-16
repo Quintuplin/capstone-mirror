@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
-
+import subprocess
 #this method was retrieved from stack overflow on 3.14.19
 def upload_file(request):
 	#if we have post requesst
@@ -16,7 +16,16 @@ def upload_file(request):
         uploaded_file_url = fs.url(filename)
 		#this will redirct us to the dash_app
         redirectURL = '/dash_results/'
-		#render the upload.html file and pass the url for the file and the url to redirect
+        uniqueURL = uploaded_file_url
+        #hard coded path should be changed
+        subprocess.run(['docker','run','-it','--rm','-e','WINEDEBUG=-all','-v',
+                        '/home/cowdendt/Desktop/NIST/capstone-2019-nist/uploads:/data',
+                        'chambm/pwiz-skyline-i-agree-to-the-vendor-licenses','wine','msconvert',
+                        '/data/small.raw'])
+        print('docker subprocess complete')
+        subprocess.run(['python3','/home/cowdendt/Desktop/NIST/capstone-2019-nist/capstone/upload/mzml_to_csv.py'])
+        print('python3 subprocess complete')
+        #render the upload.html file and pass the url for the file and the url to redirect
         return render(request, 'upload.html', {
             'uploaded_file_url': uploaded_file_url,
             'redirectURL': redirectURL
