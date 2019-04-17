@@ -1,24 +1,41 @@
 from pyteomics import mzml, auxiliary
 import pymzml as pyM
 import csv
-with mzml.read('0.mzML') as reader:
-	auxiliary.print_tree(next(reader))
+from upload.views import upload_file as upload
+import os
+import sys
+import string as str
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#grab the argument passed from views.py
 
-#reference_file = 'lala.mzML'
-reference_file = pyM.run.Reader("lala.mzML")
+#grab 1st index to get filename
+argument = sys.argv[1]
+print(argument)
+
+#replace filename.raw with filename.mzml in order to find the mzml file
+mzml_file = argument.replace('.RAW', '.mzML')
+print(mzml_file)
+mzml_file_location = BASE_DIR +'/capstone/uploads/'+mzml_file
+
+#naviagates to the files needed
+query_file = BASE_DIR + '/capstone/uploads/references/0.mzML'
+hela_file = BASE_DIR + '/capstone/uploads/references/HeLa.splib'
+
+reference_file = pyM.run.Reader(mzml_file_location)
 amount_injected = 200
-fasta_file = 'up000005640.fasta'
-spectrast_library = 'HeLa.splib'
+
+spectrast_library = hela_file
 query = '0'
-query_file = pyM.run.Reader('0.mzML')
+
+query_file = pyM.run.Reader(query_file)
 
 
 #reference_file <- openMSfile(paste(REFERENCE, '.mzML', sep=''))
 with open("ref.csv", "w", newline='') as csvfile:
 	writer = csv.writer(csvfile, delimiter=' ',
 						quotechar=' ',quoting=csv.QUOTE_MINIMAL)
-	#ref_list = []
+
 	n = 0
 	for spectrum in reference_file:
 		ref_tic = spectrum.TIC
@@ -45,3 +62,4 @@ with open("que.csv", "w", newline='') as csvfile:
 	#f.write(str(q_tic))
 	#f.close()
 	#writer.close()
+os.remove(mzml_file_location)

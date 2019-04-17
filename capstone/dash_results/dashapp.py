@@ -14,7 +14,7 @@ from . import router
 # change your directory
 
 
-df = pd.read_csv('/home/cowdendt/Desktop/misc/capstone-2019-nist/capstone/dash_results/temp/que.csv')
+#df = pd.read_csv('/home/misae/capstone-2019-nist/capstone/dash_results/temp/que.csv')
 
 
 
@@ -24,7 +24,7 @@ colors = {
     'text': '#7FDBFF'
 }
 app.layout = dash_table.DataTable(
-    id='table',
-    columns=[{"name": i, "id": i} for i in df.columns],
-    data=df.to_dict("rows"),
+#    id='table',
+#    columns=[{"name": i, "id": i} for i in df.columns],
+#    data=df.to_dict("rows"),
 )
