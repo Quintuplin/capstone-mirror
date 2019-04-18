@@ -22,11 +22,11 @@ query_file = BASE_DIR + '/que.csv'
 reference_file = BASE_DIR + '/ref.csv'
 
 query_df = pd.read_csv(query_file)
-query_df = query_df.head(50)
-print(query_df)
+#query_df = query_df.head(50)
+#print(query_df)
 
 reference_df = pd.read_csv(reference_file)
-print(reference_df)
+#print(reference_df)
 
 
 
@@ -147,7 +147,7 @@ def render_content(tab):
                 go.Scatter(
                     x = reference_df['Time'],
                     y = reference_df['TIC'],
-                    mode='markers',
+                    mode='lines',
                     opacity=0.7,
                     marker={
                         'size': 15,
