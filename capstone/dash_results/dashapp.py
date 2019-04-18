@@ -7,11 +7,13 @@ import plotly.plotly as py
 import dash
 import plotly.graph_objs as go
 import os
-import dash_table
+
 import numpy as np
 import pandas as pd
 from .server import app
 from . import router
+
+from .layouts  import layout1, box_results
 
 # change your directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,11 +24,9 @@ query_file = BASE_DIR + '/que.csv'
 reference_file = BASE_DIR + '/ref.csv'
 
 query_df = pd.read_csv(query_file)
-#query_df = query_df.head(50)
-#print(query_df)
 
 reference_df = pd.read_csv(reference_file)
-#print(reference_df)
+
 
 
 
@@ -128,103 +128,23 @@ app.index_string = '''
 
 '''
 
+
+
 app.layout = html.Div([
-    dcc.Tabs(id="tabs", value='tab-1', children=[
-        dcc.Tab(label='Scatter Plot', value='tab-1'),
-        dcc.Tab(label='Data Table', value='tab-2'),
-    ]),
-    html.Div(id='tabs-content')
+    dcc.Location(id='url', refresh=False),
+    html.Div(id='page-content')
 ])
-@app.callback(Output('tabs-content', 'children'),
-              [Input('tabs', 'value')])
-def render_content(tab):
-    if tab == 'tab-1':
-        return html.Div([
-        dcc.Graph(
-            id='total-ion',
-            figure={
-            'data': [
-                go.Scatter(
-                    x = reference_df['Time'],
-                    y = reference_df['TIC'],
-                    mode='lines',
-                    opacity=0.7,
-                    marker={
-                        'size': 15,
-                        'line': {'width': 0.5, 'color': 'white'}
-                    },
-                    name='reference'
-                ),
-                go.Scatter(
-                    x=query_df['Time'],
-                    y=query_df['TIC'],
-                    mode='lines',
-                    opacity=0.7,
-                    marker={
-                        'size': 13,
-                        'line': {'width': 0.5, 'color': 'white'}
-                    },
-                    name= 'query'
-                )
-            ],
-            'layout': go.Layout(
-                xaxis={'type': 'linear',
-                       'title': 'Retention Time (min)',
-                       'titlefont' : {'size' : 18, 'color' : 'grey'},
-                       'showticklabels' : True,
-                       #'tickangle' : 30,
-                       'tickfont' : {'size' : 14, 'color' : 'black'},
-                       'gridcolor' : 'darkgrey',
-                       'linecolor' : 'black',
-                       'exponentformat' : 'e',
-                       'showexponent' : 'all'},
-                yaxis={'type': 'log',
-                       'title': 'Total Ion Current',
-                       'titlefont' : {'size' : 18, 'color' : 'grey'},
-                       'showticklabels' : True,
-                       'tickangle' : 30,
-                       'tickfont' : {'size' : 14, 'color' : 'black'},
-                       'dtick' : 1,
-                       'gridcolor' : 'darkgrey',
-                       'linecolor' : 'black',
-                       'exponentformat' : 'e',
-                       'showexponent' : 'all'},
-                margin={'l': 80, 'b': 40, 't': 10, 'r': 10},
-                legend={'x': 0, 'y': 1},
-                hovermode='closest'
-            )
-        }
-    )
-])
-    elif tab == 'tab-2':
-        return html.Div([
-        html.Div([
-            html.H3('QUERY CSV'),
-            dash_table.DataTable(
-                id='table',
-                columns=[{"name": i, "id": i} for i in query_df.columns],
-                data=query_df.to_dict("rows")
-            )
 
-    ],
-        className='six columns'),
+@app.callback(Output('page-content', 'children'),
+              [Input('url', 'pathname')])
+def display_page(pathname):
 
-        html.Div([
-            html.H3('REFERENCE CSV'),
-            dash_table.DataTable(
-                id='table',
-                columns=[{"name": i, "id": i} for i in reference_df.columns],
-                data=reference_df.to_dict("rows")
-            )
-        ]
-        , className='six columns'),
-    ],className="row")
-
-    app.css.append_css({
-        'external_url': 'https://codepen.io/chriddyp/pen/bWLwgP.css'
-    })
-
-
+    if pathname  == '/dash_results/':
+        return box_results
+    elif pathname == '/dash_results/result_one/':
+        return layout1
+    else:
+        return '404'
 
 
 
