@@ -182,6 +182,7 @@ def render_content(tab):
     elif tab == 'tab-2':
         return html.Div([
         html.Div([
+            html.H3('QUERY CSV'),
             dash_table.DataTable(
                 id='table',
                 columns=[{"name": i, "id": i} for i in query_df.columns],
@@ -189,16 +190,17 @@ def render_content(tab):
             )
 
     ],
-        className="six columns"),
+        className='six columns'),
 
         html.Div([
+            html.H3('REFERENCE CSV'),
             dash_table.DataTable(
                 id='table',
-                columns=[{"name": i, "id": i} for i in query_df.columns],
-                data=query_df.to_dict("rows")
+                columns=[{"name": i, "id": i} for i in reference_df.columns],
+                data=reference_df.to_dict("rows")
             )
         ]
-        , className="six columns"),
+        , className='six columns'),
     ],className="row")
 
     app.css.append_css({
