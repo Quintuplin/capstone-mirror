@@ -180,8 +180,32 @@ def render_content(tab):
     )
 ])
     elif tab == 'tab-2':
-        return dash_table.DataTable(
-        id='table',
-        columns=[{"name": i, "id": i} for i in query_df.columns],
-        data=query_df.to_dict("rows"),
-)
+        return html.Div([
+        html.Div([
+            dash_table.DataTable(
+                id='table',
+                columns=[{"name": i, "id": i} for i in query_df.columns],
+                data=query_df.to_dict("rows")
+            )
+
+    ],
+        className="six columns"),
+
+        html.Div([
+            dash_table.DataTable(
+                id='table',
+                columns=[{"name": i, "id": i} for i in query_df.columns],
+                data=query_df.to_dict("rows")
+            )
+        ]
+        , className="six columns"),
+    ],className="row")
+
+    app.css.append_css({
+        'external_url': 'https://codepen.io/chriddyp/pen/bWLwgP.css'
+    })
+
+
+
+
+
