@@ -8,12 +8,60 @@ import plotly.graph_objs as go
 from . import dashapp
 import dash_table
 
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
 def index():
     ''' '''
 ##stop light box results page
 box_results = html.Div([
-    html.H3('hello testing'),
-    dcc.Link('Go to App 2', href='/dash_results/result_one/')])
+    #html.H3('hello testing'),
+    html.Div([dcc.Link('Go to App 2', href='/dash_results/result_one/')],className="sixcolumns"),#spacer
+    html.Div(#Column 1: Sample
+            [
+                html.H5(children='Sample'),
+                html.P(children='Status Information'),
+                html.A([ # Clickable image that links you to a page defined at the bottom
+                   html.Img(src="/static/img/greenbox.png")],href='/dash_results/result_one/'),
+            ],
+            className="six columns" # "" or maybe column?
+    ),#Column 2: LC
+    html.Div(
+            [
+                html.H5(children='LC'),
+                html.P(children='General Information'),
+                html.A([ # Clickable image
+                   html.Img(src="/static/img/greenbox.png")],href='/dash_results/result_two/'),
+            ],
+            className="six columns"
+    ),#Column 3: Source
+    html.Div(
+            [
+                html.H5(children='Source'),
+                html.P(children='Information'),
+                html.A([ # Clickable image
+                   html.Img(src="/static/img/yellowbox.png")],href='/dash_results/result_three/'),
+            ],
+            className="six columns"
+    ),#Column 6: MS1
+    html.Div(
+            [
+                html.H5(children='MS1'),
+                html.P(children='Information'),
+                html.A([ # Clickable image
+                   html.Img(src="/static/img/redbox.png")],href='/dash_results/result_four/'),
+            ],
+            className="six columns"
+    ),#Column 5: MS2
+    html.Div(
+            [
+                html.H5(children='MS2'),
+                html.P(children='Information'),
+                html.A([ # Clickable image
+                   html.Img(src="/static/img/redbox.png")],href='/dash_results/result_five/'),
+            ],
+            className="six columns"
+    )],className="row")
+    #dcc.Link('Go to App 2', href='/dash_results/result_one/')])
 #######################################################################################################################################
 ## result one page graph
 layout1 = html.Div([
