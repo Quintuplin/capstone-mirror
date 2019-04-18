@@ -129,9 +129,20 @@ app.index_string = '''
 '''
 
 app.layout = html.Div([
-    dcc.Graph(
-        id='life-exp-vs-gdp',
-        figure={
+    dcc.Tabs(id="tabs", value='tab-1', children=[
+        dcc.Tab(label='Scatter Plot', value='tab-1'),
+        dcc.Tab(label='Data Table', value='tab-2'),
+    ]),
+    html.Div(id='tabs-content')
+])
+@app.callback(Output('tabs-content', 'children'),
+              [Input('tabs', 'value')])
+def render_content(tab):
+    if tab == 'tab-1':
+        return html.Div([
+        dcc.Graph(
+            id='total-ion',
+            figure={
             'data': [
                 go.Scatter(
                     x=query_df['Time'],
@@ -168,3 +179,9 @@ app.layout = html.Div([
         }
     )
 ])
+    elif tab == 'tab-2':
+        return dash_table.DataTable(
+        id='table',
+        columns=[{"name": i, "id": i} for i in query_df.columns],
+        data=query_df.to_dict("rows"),
+)
