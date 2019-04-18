@@ -145,17 +145,6 @@ def render_content(tab):
             figure={
             'data': [
                 go.Scatter(
-                    x=query_df['Time'],
-                    y=query_df['TIC'],
-                    mode='markers',
-                    opacity=0.7,
-                    marker={
-                        'size': 15,
-                        'line': {'width': 0.5, 'color': 'white'}
-                    },
-                    name= 'query'
-                ),
-                go.Scatter(
                     x = reference_df['Time'],
                     y = reference_df['TIC'],
                     mode='markers',
@@ -165,14 +154,42 @@ def render_content(tab):
                         'line': {'width': 0.5, 'color': 'white'}
                     },
                     name='reference'
+                ),
+                go.Scatter(
+                    x=query_df['Time'],
+                    y=query_df['TIC'],
+                    mode='lines',
+                    opacity=0.7,
+                    marker={
+                        'size': 13,
+                        'line': {'width': 0.5, 'color': 'white'}
+                    },
+                    name= 'query'
                 )
             ],
             'layout': go.Layout(
-                xaxis={'type': 'log',
-                       'title': 'Time'},
+                xaxis={'type': 'linear',
+                       'title': 'Retention Time (min)',
+                       'titlefont' : {'size' : 18, 'color' : 'grey'},
+                       'showticklabels' : True,
+                       #'tickangle' : 30,
+                       'tickfont' : {'size' : 14, 'color' : 'black'},
+                       'gridcolor' : 'darkgrey',
+                       'linecolor' : 'black',
+                       'exponentformat' : 'e',
+                       'showexponent' : 'all'},
                 yaxis={'type': 'log',
-                       'title': 'TIC'},
-                margin={'l': 40, 'b': 40, 't': 10, 'r': 10},
+                       'title': 'Total Ion Current',
+                       'titlefont' : {'size' : 18, 'color' : 'grey'},
+                       'showticklabels' : True,
+                       'tickangle' : 30,
+                       'tickfont' : {'size' : 14, 'color' : 'black'},
+                       'dtick' : 1,
+                       'gridcolor' : 'darkgrey',
+                       'linecolor' : 'black',
+                       'exponentformat' : 'e',
+                       'showexponent' : 'all'},
+                margin={'l': 80, 'b': 40, 't': 10, 'r': 10},
                 legend={'x': 0, 'y': 1},
                 hovermode='closest'
             )
