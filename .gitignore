@@ -16,6 +16,7 @@
 *.mzml
 *.raw
 *.csv
+!sample.csv
 
 # uploads directory contents ignore (but directory itself include)
 uploads/
