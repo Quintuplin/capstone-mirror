@@ -12,3 +12,4 @@ lxml
 pandas
 sqlalchemy
 pyteomics
+pymzml
