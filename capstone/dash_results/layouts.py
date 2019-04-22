@@ -14,16 +14,16 @@ def index():
     ''' '''
 ##stop light box results page
 box_results = html.Div([
-    #html.H3('hello testing'),
-    html.Div([dcc.Link('Go to App 2', href='/dash_results/result_one/')],className="sixcolumns"),#spacer
+
+
     html.Div(#Column 1: Sample
             [
                 html.H5(children='Sample'),
                 html.P(children='Status Information'),
                 html.A([ # Clickable image that links you to a page defined at the bottom
                    html.Img(src="/static/img/greenbox.png", style = {
-                      'height' : '200',
-                      'width' : '200',
+                      'height' : '300',
+                      'width' : '300',
                    })],href='/dash_results/result_one/'),
             ],
             className="six columns" # "" or maybe column?
@@ -34,8 +34,8 @@ box_results = html.Div([
                 html.P(children='General Information'),
                 html.A([ # Clickable image
                    html.Img(src="/static/img/greenbox.png", style = {
-                      'height' : '200',
-                      'width' : '200',
+                      'height' : '300',
+                      'width' : '300',
                    })],href='/dash_results/result_two/'),
             ],
             className="six columns"
@@ -46,8 +46,8 @@ box_results = html.Div([
                 html.P(children='Information'),
                 html.A([ # Clickable image
                    html.Img(src="/static/img/yellowbox.png", style = {
-                      'height' : '200',
-                      'width' : '200',
+                      'height' : '300',
+                      'width' : '300',
                    })],href='/dash_results/result_three/'),
             ],
             className="six columns"
@@ -58,8 +58,8 @@ box_results = html.Div([
                 html.P(children='Information'),
                 html.A([ # Clickable image
                    html.Img(src="/static/img/redbox.png", style = {
-                      'height' : '200',
-                      'width' : '200',
+                      'height' : '300',
+                      'width' : '300',
                    })],href='/dash_results/result_four/'),
             ],
             className="six columns"
@@ -70,13 +70,13 @@ box_results = html.Div([
                 html.P(children='Information'),
                 html.A([ # Clickable image
                    html.Img(src="/static/img/redbox.png", style = {
-                      'height' : '200',
-                      'width' : '200',
+                      'height' : '300',
+                      'width' : '300',
                    })],href='/dash_results/result_five/'),
             ],
             className="six columns"
-    )],className="row")
-    #dcc.Link('Go to App 2', href='/dash_results/result_one/')])
+    )],style={'margin': '75','fontSize': 20},className="row")
+
 #######################################################################################################################################
 ## result one page graph
 layout1 = html.Div([
