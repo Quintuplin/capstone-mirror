@@ -21,7 +21,10 @@ box_results = html.Div([
                 html.H5(children='Sample'),
                 html.P(children='Status Information'),
                 html.A([ # Clickable image that links you to a page defined at the bottom
-                   html.Img(src="/static/img/greenbox.png")],href='/dash_results/result_one/'),
+                   html.Img(src="/static/img/greenbox.png", style = {
+                      'height' : '200',
+                      'width' : '200',
+                   })],href='/dash_results/result_one/'),
             ],
             className="six columns" # "" or maybe column?
     ),#Column 2: LC
@@ -30,7 +33,10 @@ box_results = html.Div([
                 html.H5(children='LC'),
                 html.P(children='General Information'),
                 html.A([ # Clickable image
-                   html.Img(src="/static/img/greenbox.png")],href='/dash_results/result_two/'),
+                   html.Img(src="/static/img/greenbox.png", style = {
+                      'height' : '200',
+                      'width' : '200',
+                   })],href='/dash_results/result_two/'),
             ],
             className="six columns"
     ),#Column 3: Source
@@ -39,7 +45,10 @@ box_results = html.Div([
                 html.H5(children='Source'),
                 html.P(children='Information'),
                 html.A([ # Clickable image
-                   html.Img(src="/static/img/yellowbox.png")],href='/dash_results/result_three/'),
+                   html.Img(src="/static/img/yellowbox.png", style = {
+                      'height' : '200',
+                      'width' : '200',
+                   })],href='/dash_results/result_three/'),
             ],
             className="six columns"
     ),#Column 6: MS1
@@ -48,7 +57,10 @@ box_results = html.Div([
                 html.H5(children='MS1'),
                 html.P(children='Information'),
                 html.A([ # Clickable image
-                   html.Img(src="/static/img/redbox.png")],href='/dash_results/result_four/'),
+                   html.Img(src="/static/img/redbox.png", style = {
+                      'height' : '200',
+                      'width' : '200',
+                   })],href='/dash_results/result_four/'),
             ],
             className="six columns"
     ),#Column 5: MS2
@@ -57,7 +69,10 @@ box_results = html.Div([
                 html.H5(children='MS2'),
                 html.P(children='Information'),
                 html.A([ # Clickable image
-                   html.Img(src="/static/img/redbox.png")],href='/dash_results/result_five/'),
+                   html.Img(src="/static/img/redbox.png", style = {
+                      'height' : '200',
+                      'width' : '200',
+                   })],href='/dash_results/result_five/'),
             ],
             className="six columns"
     )],className="row")
