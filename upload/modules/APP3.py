@@ -26,7 +26,7 @@ def RESULTgen(ID, basePath, staticPath):
         copyfile(os.path.join(staticPath, "img", "line.jpg"), os.path.join(basePath, str(ID), "g1.jpg"))
 
         #graph dummy
-        file2a = open(os.path.join(staticPath, "sample.csv"), "r")
+        file2a = open(os.path.join(staticPath, "csv", "sample.csv"), "r")
         file2b = open(os.path.join(basePath, str(ID), "results1.csv"), "w")
         for line in file2a:
             file2b.write(line)
