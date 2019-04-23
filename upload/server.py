@@ -2,7 +2,7 @@ from flask import Flask
 from dash import Dash
 
 # should start and end with a '/'
-URL_BASE_PATHNAME = '/webapp/'
+URL_BASE_PATHNAME = '/upload/'
 
 server = Flask(__name__)
 

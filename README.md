@@ -40,8 +40,8 @@ python manage.py runserver <br />
 
 ### TO RUN THE ENTIRE THING IN DOCKER (but don't right now, implementation is incomplete)
 0. start Docker Desktop
-1. docker build -t=webapp .
-2. docker run --rm -p 8000:8000 -v uploads:/uploads webapp
+1. docker build -t=upload .
+2. docker run --rm -p 8000:8000 -v uploads:/uploads upload
 3. open http://localhost:8000<br /> 
 note: does not give an error message but file does not appear in actual directory; more experimentation required <br /> 
 
@@ -55,15 +55,15 @@ https://bitbucket.org/m_c_/sample-dash/overview<br />
 https://buildmedia.readthedocs.org/media/pdf/django-plotly-dash/latest/django-plotly-dash.pdf<br /> 
 
 ## To add a page<br /> 
-Go to webapp
-1. add a .html to the webapp with the layout
+Go to upload
+1. add a .html to the upload with the layout
 2. create a link to it in urls.py
 3. define it's functionality in views.py
 4. if it requires additional long functions, recommend that you add the app to the modules folder and import the callables to views
 5. if it requires images or css, put them in static
-6. more complex features may require methods in webapp/migrations/0001_initial.py, and matching methods in forms.py and models.py. This appears to be how Django handles handoffs between layers, so for now it's a necessary evil. Refer to the upload segments in each file to see how they work together.
+6. more complex features may require methods in upload/migrations/0001_initial.py, and matching methods in forms.py and models.py. This appears to be how Django handles handoffs between layers, so for now it's a necessary evil. Refer to the upload segments in each file to see how they work together.
 
-No need to create entire seperate top layer django apps: it's better to use modules in webapp to cut down on our redundant instances<br /> 
+No need to create entire seperate top layer django apps: it's better to use modules in upload to cut down on our redundant instances<br /> 
 No need to make major changes to the capstone folder: only needed to change django settings such as save path location<br /> 
 
 TODO: urls accept regexes; make unique URL routing function with an updated results page<br /> 
